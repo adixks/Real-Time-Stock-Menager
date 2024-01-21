@@ -1,7 +1,10 @@
 # 🚀 Microcurrency Exchange System
 Welcome to the Microcurrency Exchange System, a microservices architecture for currency exchange information retrieval and processing!
 
-## Components
+## Tools and Components 🔧
+[Java 17, Spring Boot 3, Spring Security, Spring Web MVC, Spring for Mail, JPA, REST API, MySQL, RabbitQM, Docker, Lombock]
+
+## Elements
 1. **Currency Provider**
    - Regularly updates exchange rates from an API and sends them to a message queue (RabbitMQ).
 
