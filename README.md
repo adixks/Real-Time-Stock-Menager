@@ -42,8 +42,10 @@ I look forward to hearing from you and discussing the exciting possibilities of 
 # Examples
 
 ![image](https://github.com/adixks/exchange-api/assets/83171399/a6260184-2f52-4a62-8444-9887517d904b)
+#
 
 ![image](https://github.com/adixks/exchange-api/assets/83171399/d429ec7c-018a-4cff-bb6f-b1e6f35c7a2d)
+#
 
 ![image](https://github.com/adixks/exchange-api/assets/83171399/2d11de0f-f8c1-4184-b4b9-12432a176645)
 
