@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+  
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: exchange
+    ports:
+      - "3306:3306"
+  
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  currency-provider:
+    build:
+      context: .
+      dockerfile: ./currency-provider/Dockerfile
+    environment:
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
+    depends_on:
+      - rabbitmq
+  
+  currency-persistance-service:
+    build:
+      context: .
+      dockerfile: ./currency-persistance-service/Dockerfile
+    environment:
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
+      DB_URL: db/exchange
+      DB_USERNAME: root
+      DB_PASSWORD: 1234
+    depends_on:
+      - db
+      - rabbitmq
+  
+  exchange-api:
+    build:
+      context: .
+      dockerfile: ./exchangeApiApplication/Dockerfile
+    environment:
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
+      DB_URL: db/exchange
+      DB_USERNAME: root
+      DB_PASSWORD: 1234
+    depends_on:
+      - db
+      - rabbitmq
+    ports:
+      - "8082:8082"
+ 
+  mail-service:
+    build:
+      context: .
+      dockerfile: ./mail-service/Dockerfile
+    environment:
+      RABBIT_HOST: rabbitmq
+      RABBIT_USERNAME: guest
+      RABBIT_PASSWORD: guest
+    depends_on:
+      - rabbitmq
+
+networks:
+  default:
+    external:
+      name: my-network
