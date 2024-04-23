@@ -1,5 +1,5 @@
 # 🚀 Real-Time Stock Menager
-Welcome to the Microcurrency Exchange System, a microservices architecture for currency exchange information retrieval and processing!
+Welcome to the Real-Time Stock Menager, a microservices architecture for currency exchange information retrieval and processing!
 
 ## Tools and Components 🔧
 [Java 17, Spring Boot 3, Spring Security, Spring Web MVC, Spring for Mail, JPA, REST API, MySQL, RabbitMQ, Docker, Lombok]
