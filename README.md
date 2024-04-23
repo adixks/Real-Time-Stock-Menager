@@ -1,4 +1,4 @@
-# 🚀 Microcurrency Exchange System
+# 🚀 Real-Time Stock Menager
 Welcome to the Microcurrency Exchange System, a microservices architecture for currency exchange information retrieval and processing!
 
 ## Tools and Components 🔧
